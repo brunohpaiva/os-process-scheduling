@@ -1,3 +1,3 @@
-const createGenericComparator = require('./createGenericComparator');
+const createGenericComparator = require("./createGenericComparator");
 
-module.exports = createGenericComparator('burstTime');
+module.exports = createGenericComparator("burstTime");

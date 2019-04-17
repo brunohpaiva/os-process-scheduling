@@ -1,3 +1,3 @@
 const createGenericComparator = require("./createGenericComparator");
 
-module.exports = createGenericComparator("pid");
+module.exports = createGenericComparator("priority");

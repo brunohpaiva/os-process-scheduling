@@ -2,6 +2,7 @@ const Process = require("./models/Process");
 const createPidComparator = require("./comparators/pid");
 const calculateAverageTimeFifo = require("./algorithms/fifo");
 const calculateAverageTimeSjf = require("./algorithms/sjf");
+const calculateAverageTimePriority = require("./algorithms/priority");
 
 const processes = [
   new Process(1, 0, 7),
@@ -12,3 +13,4 @@ const processes = [
 
 console.log(calculateAverageTimeFifo(processes));
 console.log(calculateAverageTimeSjf(processes, createPidComparator()));
+console.log(calculateAverageTimePriority(processes));
