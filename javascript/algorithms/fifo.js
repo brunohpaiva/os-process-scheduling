@@ -1,9 +1,9 @@
 const createArrivalTimeComparator = require("../comparators/arrivalTime");
 
 const fifo = (processes, tiebreakerComparator) => {
-  let sortedProcesses = processes.sort(
-    createArrivalTimeComparator(tiebreakerComparator)
-  );
+  let sortedProcesses = processes
+    .map(process => process.clone())
+    .sort(createArrivalTimeComparator(tiebreakerComparator));
 
   let currentExecutionTime = 0;
   let totalWaitingTime = 0;

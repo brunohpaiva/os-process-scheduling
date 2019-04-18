@@ -10,13 +10,15 @@ const getNextProcess = (
   return processes
     .filter(
       process =>
-        process.arrivalTime <= currentExecutionTime && !process.executed
+        process.arrivalTime <= currentExecutionTime && !process.finished
     )
     .sort(burstTimeComparator)[0];
 };
 
 const sjf = (processes, tiebreakerComparator) => {
-  processes = processes.sort(createArrivalTimeComparator(tiebreakerComparator));
+  processes = processes
+    .map(process => process.clone())
+    .sort(createArrivalTimeComparator(tiebreakerComparator));
 
   let currentExecutionTime = 0;
   let totalWaitingTime = 0;
@@ -28,7 +30,7 @@ const sjf = (processes, tiebreakerComparator) => {
     let waitingTime = executedAt - process.arrivalTime;
     totalWaitingTime += waitingTime;
 
-    process.executed = true;
+    process.finished = true;
     process = getNextProcess(
       processes,
       currentExecutionTime,

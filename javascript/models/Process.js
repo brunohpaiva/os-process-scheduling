@@ -5,4 +5,8 @@ function Process(pid, arrivalTime, burstTime, priority) {
   this.priority = priority;
 }
 
+Process.prototype.clone = function() {
+  return Object.assign(new Process(), this);
+}
+
 module.exports = Process;

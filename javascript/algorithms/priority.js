@@ -2,12 +2,14 @@ const createArrivalTimeComparator = require("../comparators/arrivalTime");
 const createPriorityComparator = require("../comparators/priority");
 
 const priority = (processes, priorityDirection) => {
-  let sortedProcesses = processes.sort(
-    createPriorityComparator(
-      createArrivalTimeComparator(),
-      priorityDirection ? priorityDirection : "desc"
-    )
-  );
+  let sortedProcesses = processes
+    .map(process => process.clone())
+    .sort(
+      createPriorityComparator(
+        createArrivalTimeComparator(),
+        priorityDirection ? priorityDirection : "desc"
+      )
+    );
 
   let currentExecutionTime = 0;
   let totalWaitingTime = 0;
