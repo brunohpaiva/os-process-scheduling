@@ -4,6 +4,7 @@ const calculateAverageTimeFifo = require("./algorithms/fifo");
 const calculateAverageTimeSjf = require("./algorithms/sjf");
 const calculateAverageTimeSrtf = require("./algorithms/srtf");
 const calculateAverageTimePriority = require("./algorithms/priority");
+const calculateAverageTimeRr = require("./algorithms/rr");
 
 const processes = [
   new Process(1, 0, 7),
@@ -16,3 +17,4 @@ console.log("FIFO", calculateAverageTimeFifo(processes));
 console.log("SJF", calculateAverageTimeSjf(processes, createPidComparator()));
 console.log("SRTF", calculateAverageTimeSrtf(processes, createPidComparator()));
 console.log("PRIORITY", calculateAverageTimePriority(processes));
+console.log("RR", calculateAverageTimeRr(processes, 4));
