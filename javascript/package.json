@@ -1,0 +1,14 @@
+{
+  "name": "os-process-scheduling-javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {},
+  "repository": "https://github.com/brunohpaiva/os-process-scheduling",
+  "author": "Bruno Henrique Paiva <bruno@sigane.com.br>",
+  "private": true,
+  "devDependencies": {}
+}

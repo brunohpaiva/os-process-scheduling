@@ -8,7 +8,7 @@ const fifo = (processes, tiebreakerComparator) => {
   let currentExecutionTime = 0;
   let totalWaitingTime = 0;
   for (let index = 0; index < sortedProcesses.length; index++) {
-    let process = sortedProcesses[index];
+    const process = sortedProcesses[index];
 
     let executedAt = currentExecutionTime;
     currentExecutionTime += process.burstTime;
